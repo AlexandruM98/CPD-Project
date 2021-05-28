@@ -1,0 +1,29 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+    implementation 'org.springframework.boot:spring-boot-starter-rsocket'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.amqp:spring-rabbit-test'
+    implementation 'io.rsocket:rsocket-transport-netty:1.1.0'
+    implementation 'io.rsocket:rsocket-core:1.1.0'
+    compile("org.springframework.cloud:spring-cloud-gcp-starter-pubsub:1.2.5.RELEASE")
+    compile("org.springframework.integration:spring-integration-core")
+    implementation group: 'org.springframework.integration', name: 'spring-integration-core', version: '5.4.6'
+}
+test {
+    useJUnitPlatform()
+}
